@@ -1,0 +1,14 @@
+<section>
+  <form (ngSubmit)="onSubmit()" fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="10px" [formGroup]="loginForm">
+    <mat-form-field hintLabel="Email">
+      <input type="email" matInput placeholder="Email"  name=email formControlName="email">
+      <mat-error >Email wymagany</mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="Hasło">
+      <input type="password" matInput placeholder="Hasło" required minlength="6" name="password" formControlName="password">
+      <!-- <mat-hint align="end">{{ passInput.value?.length }}/6</mat-hint> -->
+      <mat-error >Podaj Hasło</mat-error>
+    </mat-form-field>
+    <button mat-raised-button [disabled]="loginForm.invalid" color="primary">Zaloguj</button>
+  </form>
+</section>

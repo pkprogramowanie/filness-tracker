@@ -1,0 +1,39 @@
+<section class="signup-form">
+  <form fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="onSubmit(form)" #form="ngForm" fxLayoutGap="10px">
+    <mat-form-field>
+      <input
+      type="email"
+      matInput
+      placeholder="Email"
+      ngModel
+      name="email"
+      email
+      required
+      #emailInput="ngModel">
+      <mat-error *ngIf="emailInput.hasError('required')">Email nie moze byc pusty</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">Błędny email</mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="Hasło musi zawierać conajmniej 6 znaków">
+      <input
+       type="password"
+       matInput
+       placeholder="Hasło"
+       ngModel
+       name="password"
+       required
+       minlength="6"
+       #pwInput="ngModel">
+       <mat-hint align="end">{{ pwInput.value?.length}} /6</mat-hint>
+       <mat-error *ngIf="pwInput.hasError('required')">Hasło musi zawierać conajmniej 6 znaków</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Data urodzenia" [max]="maxDate" ngModel name="birthdate" required #birthday="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="birthday.hasError('required')">Podaj datę urudzenia</mat-error>
+      </mat-form-field>
+        <mat-checkbox required ngModel name="agree" required #checkoxAgree="ngModel" color="primary">Zaznacz</mat-checkbox>
+        <mat-error *ngIf="checkoxAgree.touched && !checkoxAgree.value">Musisz się zgodzić</mat-error>
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Rejestruj</button>
+  </form>
+</section>
