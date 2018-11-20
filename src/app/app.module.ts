@@ -19,6 +19,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { StopTrainingDialogComponent } from './training/stop-training-dialog/stop-training-dialog.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { StopTrainingDialogComponent } from './training/stop-training-dialog/sto
     ReactiveFormsModule
   ],
   providers: [
+    AuthService,
     {provide: MAT_DATE_LOCALE, useValue: 'pl-PL'}],
     bootstrap: [AppComponent],
     entryComponents: [StopTrainingDialogComponent]
