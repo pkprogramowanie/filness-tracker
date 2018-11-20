@@ -16,6 +16,9 @@ import { PastTrainingsComponent } from './training/past-trainings/past-trainings
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material';
+import { HeaderComponent } from './navigation/header/header.component';
+import { SidenavComponent } from './navigation/sidenav/sidenav.component';
+import { StopTrainingDialogComponent } from './training/stop-training-dialog/stop-training-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { MAT_DATE_LOCALE } from '@angular/material';
     CurrentTrainingComponent,
     NewTrainingComponent,
     PastTrainingsComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    HeaderComponent,
+    SidenavComponent,
+    StopTrainingDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +45,7 @@ import { MAT_DATE_LOCALE } from '@angular/material';
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'pl-PL'}],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [StopTrainingDialogComponent]
 })
 export class AppModule { }
